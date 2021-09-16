@@ -3,9 +3,9 @@ app:
     main:
       driver-class-name: org.postgresql.Driver
       jdbc-url: jdbc:postgresql://localhost:5432/postgres
+      username: postgres
       password: 'postgres'
       pool-size: 30
-      username: postgres
 
 server:
   error:

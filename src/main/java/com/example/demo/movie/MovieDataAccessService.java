@@ -20,7 +20,7 @@ public class MovieDataAccessService implements MovieDao {
 
     @Override
     public int insertMovie(Movie movie) {
-        String sql = """
+        var sql = """
                 INSERT INTO movie(name, release_date)
                 VALUES (?, ?)
                 """;

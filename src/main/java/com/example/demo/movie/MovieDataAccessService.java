@@ -15,14 +15,20 @@ public class MovieDataAccessService implements MovieDao {
 
     @Override
     public List<Movie> selectMovies() {
-        throw new UnsupportedOperationException("not implemented");
+        var sql = """
+                SELECT id, name, release_date
+                FROM movie
+                LIMIT 100;
+                """;
+        return jdbcTemplate.query(sql, new MovieRowMapper());
+
     }
 
     @Override
     public int insertMovie(Movie movie) {
         var sql = """
                 INSERT INTO movie(name, release_date)
-                VALUES (?, ?)
+                VALUES (?, ?);
                 """;
         return jdbcTemplate.update(sql, movie.name(), movie.releaseDate());
 

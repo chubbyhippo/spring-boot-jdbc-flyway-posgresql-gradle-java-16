@@ -20,7 +20,12 @@ public class MovieDataAccessService implements MovieDao {
 
     @Override
     public int insertMovie(Movie movie) {
-        throw new UnsupportedOperationException("not implemented");
+        String sql = """
+                INSERT INTO movie(name, release_date)
+                VALUES (?, ?)
+                """;
+        return jdbcTemplate.update(sql, movie.name(), movie.releaseDate());
+
     }
 
     @Override
